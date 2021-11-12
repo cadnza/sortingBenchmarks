@@ -25,8 +25,8 @@ if(length(arguments)!=3){
 }
 
 # Set parameters ----
-nMax <- arguments[1]
-nTrialsPer <- arguments[2]
+nMax <- as.integer(arguments[1])
+nTrialsPer <- as.integer(arguments[2])
 
 # Set destination file for data ----
 fData <- arguments[3]
