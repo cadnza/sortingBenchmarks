@@ -15,13 +15,21 @@
 rm(list=ls())
 graphics.off()
 
+# Read in and validate arguments ----
+arguments <- commandArgs(TRUE)
+if(length(arguments)!=3){
+	cli::cli_alert_danger(
+		"Please supply nMax, nTrialsPer, and fData as unnamed arguments in that order (see README.md)."
+	)
+	quit(status=1)
+}
+
 # Set parameters ----
-nTrialsPer <- 30
-nMax <- 10
+nMax <- arguments[1]
+nTrialsPer <- arguments[2]
 
 # Set destination file for data ----
-fDataName <- "sorting.rds"
-fData <- file.path(Sys.getenv("HOME"),fDataName)
+fData <- arguments[3]
 
 # Define insertion sort ----
 is <- function(v){
@@ -349,3 +357,6 @@ if(trialStart<nTrialsPer){
 
 # Show done ----
 cli::cli_alert_success("Done!")
+
+# Exit ----
+quit(status=0)
