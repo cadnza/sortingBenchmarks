@@ -11,10 +11,6 @@
 # The dataset saves to `fData`. If you run the script once it's already done,
 # nothing will happen (in the interest of not overwriting your dataset).
 
-# Clean up ----
-rm(list=ls())
-graphics.off()
-
 # Read in and validate arguments ----
 arguments <- commandArgs(TRUE)
 if(length(arguments)!=3){
